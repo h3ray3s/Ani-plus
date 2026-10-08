@@ -235,6 +235,391 @@ sudo chmod +x /usr/local/bin/ani-plus
 
 ## Usage
 
+# Ani-plus Usage Guide
+
+A visual walkthrough of every screen you'll see.
+
+---
+
+## Table of Contents
+
+- [Starting Ani-plus](#starting-ani-plus)
+- [Search Flow](#search-flow)
+- [The Mode Menu](#the-mode-menu)
+- [Watch Flow](#watch-flow)
+- [Batch Download Flow](#batch-download-flow)
+- [Resume Detection](#resume-detection)
+- [Quality Selection](#quality-selection)
+- [Post-Play Menu](#post-play-menu)
+- [Command-Line Flags](#command-line-flags)
+- [Config Menu](#config-menu)
+- [Common Routes](#common-routes)
+
+---
+
+## Starting Ani-plus
+
+**PLEASE SET DOWNLOAD DIR BY ``ani-plus -d /path``**
+
+Just type `ani-plus` in your terminal.
+
+```console
+$ ani-plus
+```
+
+You'll immediately be dropped into the search prompt.
+
+```console
+Search anime: █
+```
+
+---
+
+## Search Flow
+
+Type any anime name. Hit Enter.
+
+```console
+Search anime: JBA No more balls
+```
+
+Ani-plus queries hianime.at and shows you a menu of matching results.
+
+```console
+┌──────────────────────────────────────────┐
+│  Select anime:                           │
+│                                          │
+│  ▸ JBA No more balls                     │
+│    JBA No more balls (Dub)               │
+│    JoJo's Bizarre Adventure              │
+│    JoJo's Bizarre Adventure: Stone Ocean │
+│    JoJo's Bizarre Adventure (Subbed)     │
+│    ...                                   │
+└──────────────────────────────────────────┘
+```
+
+Use **arrow keys** to navigate, **Enter** to select.
+
+---
+
+## The Mode Menu
+
+Once you pick an anime, Ani-plus fetches the episode list and shows you
+what to do next.
+
+```console
+Selected: JBA No more balls
+Episodes: 12 available
+Save dir: /home/hera/anime
+
+What would you like to do?
+  1) Watch now
+  2) Batch download
+  3) Quit
+Choice [1]: █
+```
+
+Three routes:
+
+| Choice | What happens |
+|--------|-------------|
+| `1` or Enter | Watch an episode now |
+| `2` | Batch download a range |
+| `3` | Exit cleanly |
+
+---
+
+## Watch Flow
+
+Choose `1`. Then pick an episode.
+
+```console
+┌──────────────────────────────────────────┐
+│  Select episode:                         │
+│                                          │
+│  ▸ 1                                     │
+│    2                                     │
+│    3                                     │
+│    4                                     │
+│    ...                                   │
+└──────────────────────────────────────────┘
+```
+
+Select one, and Ani-plus:
+
+1. Fetches the stream URLs
+2. Picks the best quality
+3. Launches mpv (or your configured player)
+
+```console
+hianime.at links fetched
+Playing episode 1...
+```
+
+**Multi-select for ranges:** hold `Tab` to select multiple episodes, or
+enter a range directly with `-e "1-5"`.
+
+---
+
+## Batch Download Flow
+
+Choose `2`. Ani-plus scans the target folder first.
+
+```console
+Anime:   JBA No more balls
+Folder:  /home/hera/anime/JBA No more balls
+Episodes available: 12
+
+Enter range (e.g. 1-12), or 'all': █
+```
+
+Two ways to specify:
+
+| Input | Meaning |
+|-------|---------|
+| `1-12` | Download episodes 1 through 12 |
+| `all` | Download every episode |
+| `5` | Download just episode 5 |
+
+After you type the range, Ani-plus asks for quality.
+
+---
+
+## Resume Detection
+
+If you already have episodes in the target folder, Ani-plus tells you.
+
+```console
+Anime:   JBA No more balls
+Folder:  /home/hera/anime/JBA No more balls
+Episodes available: 12
+Local progress: up to episode 3
+
+Enter range (e.g. 4-24), or 'all' to resume from 4: █
+```
+
+Type `all` and it starts at episode 4. Type `5-8` and it downloads just
+those. No duplicate downloads.
+
+**How it works:** Ani-plus scans the folder for `.mp4`, `.mkv`, and `.webm`
+files, extracts the highest episode number it finds, and picks up from
+there.
+
+---
+
+## Quality Selection
+
+After picking a range, Ani-plus asks for video quality.
+
+```console
+┌──────────────────────────────────────────┐
+│  Quality:                                │
+│                                          │
+│  ▸ best                                  │
+│    1080p                                 │
+│    720p                                 │
+│    480p                                 │
+│    360p                                 │
+│    240p                                 │
+└──────────────────────────────────────────┘
+```
+
+Pick one. Your choice is **saved to config** and pre-selected next time.
+
+Then the download begins:
+
+```console
+Downloading JBA No more balls Episode 4...
+Downloading JBA No more balls Episode 5...
+Downloading JBA No more balls Episode 6...
+...
+Download complete: JBA No more balls
+```
+
+---
+
+## Post-Play Menu
+
+While an episode is playing, Ani-plus waits. When the player closes:
+
+```console
+┌──────────────────────────────────────────┐
+│  Playing episode 1 of JBA No more balls... │
+│                                          │
+│  ▸ next                                  │
+│    replay                                │
+│    previous                              │
+│    select                                │
+│    change_quality                        │
+│    quit                                  │
+└──────────────────────────────────────────┘
+```
+
+| Option | Action |
+|--------|--------|
+| `next` | Play the next episode |
+| `replay` | Replay the current episode |
+| `previous` | Go back one episode |
+| `select` | Jump to a specific episode |
+| `change_quality` | Switch quality mid-session |
+| `quit` | Exit cleanly |
+
+---
+
+## Command-Line Flags
+
+Skip the interactive menus with flags.
+
+### Direct watch
+
+```console
+$ ani-plus -q 720p "JBA No more balls"
+```
+
+Searches, plays the first result, at 720p.
+
+### Specific episode
+
+```console
+$ ani-plus -e 4 "JBA No more balls"
+```
+
+Searches, plays episode 4.
+
+### Episode range
+
+```console
+$ ani-plus -e 5-8 "JBA No more balls"
+```
+
+Searches, plays episodes 5 through 8 sequentially.
+
+### VLC instead of mpv
+
+```console
+$ ani-plus -v "JBA No more balls"
+```
+
+### Continue from history
+
+```console
+$ ani-plus -c
+```
+
+Resumes the last anime you were watching.
+
+### Next-episode countdown
+
+```console
+$ ani-plus -N "JBA No more balls"
+```
+
+Shows when the next sub/dub episode releases.
+
+### Update the script
+
+```console
+$ ani-plus -U
+```
+
+Fetches the latest `ani-plus.sh` from the repo.
+
+---
+
+## Config Menu
+
+Ani-plus stores its settings in `~/.config/ani-plus/config`.
+
+### Set download directory (once)
+
+```console
+$ ani-plus -d /run/media/hera/Percival/anime
+
+Download directory permanently set to: /run/media/hera/Percival/anime
+Config saved at: /home/hera/.config/ani-plus/config
+```
+
+From then on, every batch download goes there. No `cd` required.
+
+### View current config
+
+```console
+$ ani-plus --show-download-dir
+
+Download directory: /run/media/hera/Percival/anime
+Quality:            best
+Config file:        /home/hera/.config/ani-plus/config
+
+--- file contents ---
+download_dir="/run/media/hera/Percival/anime"
+quality="1080p"
+```
+
+### Reset config
+
+```console
+$ ani-plus --reset-config
+
+Config reset. Defaults will be used next run.
+```
+
+---
+
+## Common Routes
+
+| Scenario | Command |
+|----------|---------|
+| Browse and pick interactively | `ani-plus` |
+| Play an anime by name | `ani-plus "JBA No more balls"` |
+| Play at 720p | `ani-plus -q 720p "JBA No more balls"` |
+| Play episode 4 | `ani-plus -e 4 "JBA No more balls"` |
+| Play episodes 5 through 8 | `ani-plus -e 5-8 "JBA No more balls"` |
+| Continue from last session | `ani-plus -c` |
+| Check next episode air date | `ani-plus -N "JBA No more balls"` |
+| Download one episode | `ani-plus --dl -e 4 "JBA No more balls"` |
+| Change download dir permanently | `ani-plus -d /path/to/anime` |
+| Show current settings | `ani-plus --show-download-dir` |
+| Reset everything | `ani-plus --reset-config` |
+| Update script | `ani-plus -U` |
+| Help | `ani-plus -h` |
+| Version | `ani-plus -V` |
+
+---
+
+## Folder Layout After Batch Download
+
+```
+/your/download_dir/
+├── JBA No more balls/
+│   ├── JBA No more balls Episode 01.mp4
+│   ├── JBA No more balls Episode 01.vtt   ← subtitles
+│   ├── JBA No more balls Episode 02.mp4
+│   ├── JBA No more balls Episode 02.vtt
+│   └── ...
+├── JoJo's Bizarre Adventure/
+│   ├── JoJo's Bizarre Adventure Episode 01.mp4
+│   └── ...
+└── One Piece/
+    ├── One Piece Episode 1080.mp4
+    └── ...
+```
+
+Subtitle files are downloaded alongside each episode automatically.
+
+---
+
+## Troubleshooting The Flow
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| Menu doesn't appear | `fzf` not installed | `sudo pacman -S fzf` |
+| No search results | Cloudflare block on hianime | Install `curl-impersonate` |
+| Video doesn't play | mpv missing referrer | Check the README FAQ |
+| Download hangs | yt-dlp out of date | `yt-dlp -U` |
+| Config not loading | Bad path in config | `ani-plus --reset-config` |
+
+---
+
 ### Watch mode (default)
 
 ```bash
