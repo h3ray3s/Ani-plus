@@ -13,7 +13,7 @@
 <a href="https://github.com/h3ray3s/Ani-plus/releases"><img src="https://img.shields.io/github/v/release/h3ray3s/Ani-plus?style=flat-square"></a>
 <a href="https://github.com/h3ray3s/Ani-plus/blob/main/LICENSE"><img src="https://img.shields.io/github/license/h3ray3s/Ani-plus?style=flat-square"></a>
 <a href="https://github.com/h3ray3s/Ani-plus/stargazers"><img src="https://img.shields.io/github/stars/h3ray3s/Ani-plus?style=flat-square"></a>
-<a href="https://github.com/h3ray3s"><img src="https://img.shields.io/badge/active%20dev-h3ray3s-lightblue"></a>
+<a href="https://github.com/h3ray3s"><img src="https://img.shields.io/badge/active%20dev-h3ray3s-lightred"></a>
 </p>
 
 A CLI to browse and watch anime — inspired by [ani-cli](https://github.com/pystardust/ani-cli) — with batch download, resume detection, persistent config, and more.
@@ -106,6 +106,9 @@ Add another anime? (y/n): n
 ---
 
 ## Installation
+
+
+### Please use install script as AUR is facing technical issues 
 
 ### Arch Linux (AUR)
 
@@ -295,6 +298,7 @@ ani-plus -U
 The killer feature of ani-plus.
 
 ### How it works
+(please set the download folder before usage by `ani-plus -d /path` )
 
 1. Search for anime
 2. Select from the list
@@ -547,7 +551,7 @@ If you enjoy an anime, **buy the Blu-ray** or subscribe to a legitimate streamin
 
 ## License
 
-GPL-3.0 — same as upstream ani-cli.
+GPL-3.0
 
 ---
 
