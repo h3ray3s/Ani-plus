@@ -4,7 +4,7 @@ set -e
 [ "$EUID" -ne 0 ] && { echo "Run with sudo"; exit 1; }
 
 REPO="ani-plus"
-URL="https://github.com/h3ray3s/Ani-plus/releases/download/v1.0.0-repo"
+URL="https://raw.githubusercontent.com/h3ray3s/Ani-plus/main/repo"
 
 echo "==> Adding $REPO repository..."
 if ! grep -q "^\[$REPO\]" /etc/pacman.conf; then
