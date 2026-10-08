@@ -52,7 +52,6 @@ A CLI to browse and watch anime — inspired by [ani-cli](https://github.com/pys
   - [FreeBSD](#freebsd)
   - [From Source](#from-source)
 - [Usage](#usage)
-- [Batch Download](#batch-download)
 - [Persistent Config](#persistent-config)
 - [Dependencies](#dependencies)
 - [Ani-Skip](#ani-skip)
@@ -683,45 +682,6 @@ ani-plus -U
 | `-h, --help` | Help |
 | `-U, --update` | Update script |
 | `--rofi` / `--dmenu` | Use rofi/dmenu for menus |
-
----
-
-## Batch Download
-
-The killer feature of ani-plus.
-
-### How it works
-(please set the download folder before usage by `ani-plus -d /path` )
-
-1. Search for anime
-2. Select from the list
-3. Choose **2) Batch download**
-4. Enter episode range (`1-12`, `all`, etc.)
-5. Pick quality
-6. Downloads go to `<download_dir>/<anime title>/Episode N.mp4`
-7. After each batch, asks "Add another anime?"
-
-### Resume detection
-
-ani-plus scans the target folder for existing `.mp4` / `.mkv` / `.webm` files and detects the highest episode number. If you already have episodes 1–5, entering `all` will resume from episode 6.
-
-```console
-Local progress: up to episode 5
-Enter range (e.g. 6-24), or 'all' to resume from 6: all
-```
-
-### Folder structure
-
-```
-<download_dir>/
-├── Cyberpunk Edgerunners/
-│   ├── Cyberpunk Edgerunners Episode 01.mp4
-│   ├── Cyberpunk Edgerunners Episode 01.vtt   ← subtitles
-│   ├── Cyberpunk Edgerunners Episode 02.mp4
-│   └── ...
-├── Blue Lock/
-│   └── ...
-```
 
 ---
 
