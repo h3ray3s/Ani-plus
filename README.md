@@ -4,9 +4,7 @@
 [![GitHub release](https://img.shields.io/github/v/release/h3ray3s/ani-plus?style=flat-square)](https://github.com/h3ray3s/ani-plus/releases)
 [![License](https://img.shields.io/github/license/h3ray3s/ani-plus?style=flat-square)](LICENSE)
 
-A CLI to browse and watch anime — **fork of [ani-cli](https://github.com/pystardust/ani-cli)** with **batch download**, **resume detection**, and **persistent config**.
-
-<a href="#installation"><img src="https://i.imgur.com/kO2h7Eu.png" width="200"></a>
+A CLI to browse and watch anime — **Inspired from [ani-cli](https://github.com/pystardust/ani-cli)** with **batch download**, **resume detection**, and **persistent config**.
 
 ---
 
@@ -16,6 +14,7 @@ A CLI to browse and watch anime — **fork of [ani-cli](https://github.com/pysta
 |---------|---------|----------|
 | Watch anime | ✅ | ✅ |
 | Batch download | ⚠️ via `-d -e` (one at a time) | ✅ full batch loop |
+| Automatically organizes anime files into existing folders or creates new ones based on the series name|
 | Resume from last episode | ❌ | ✅ detects existing files |
 | Persistent download dir | ❌ (env var only) | ✅ `-d /path` saves to config |
 | Interactive menu after anime select | ❌ | ✅ Watch / Download / Quit |
@@ -218,7 +217,7 @@ ani-plus
 
 ```bash
 # Watch with quality
-ani-plus -q 720p "banana fish"
+ani-plus -q 720p "JBA No more balls"
 
 # Play specific episode
 ani-plus -e 4 "cyberpunk edgerunners"
@@ -227,7 +226,7 @@ ani-plus -e 4 "cyberpunk edgerunners"
 ani-plus -e 5-8 "blue lock"
 
 # Use VLC instead of mpv
-ani-plus -v "one piece"
+ani-plus -v "Peak piece"
 
 # Syncplay (watch with friends)
 ani-plus -s "spy x family"
@@ -416,10 +415,6 @@ yay -S ani-skip
 ani-plus --skip "one piece"
 ```
 
-**Note:** only works with mpv.
-
----
-
 ## Fixing errors
 
 ### Blocked by cloudflare
@@ -514,13 +509,13 @@ rm -rf ~/.local/state/ani-plus
 4. Push (`git push origin feature/amazing`)
 5. Open a Pull Request
 
-**AI policy:** Pull requests containing AI-generated code must disclose this in the PR description. Low-effort AI-generated contributions will be rejected. (Same policy as upstream ani-cli.)
+**AI policy:** Pull requests containing AI-generated code must disclose this in the PR description. Low-effort AI-generated contributions will be rejected.
 
 ---
 
 ## Disclaimer
 
-ani-plus does **not** host any content. It scrapes publicly available stream URLs from hianime.at and passes them to mpv/yt-dlp. Same legal posture as ani-cli:
+ani-plus does **not** host any content. It scrapes publicly available stream URLs from hianime.at and passes them to mpv/yt-dlp.
 
 - Do not use this for piracy
 - Respect content licenses in your country
@@ -532,7 +527,7 @@ If you enjoy an anime, **buy the Blu-ray** or subscribe to a legitimate streamin
 
 ## License
 
-GPL-3.0 — same as upstream ani-cli.
+GPL-3.0 
 
 ## Credits
 
