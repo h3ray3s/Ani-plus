@@ -16,19 +16,18 @@
 <a href="https://github.com/h3ray3s/Ani-plus/stargazers"><img src="https://img.shields.io/github/stars/h3ray3s/Ani-plus?style=flat-square"></a>
 </p>
 A CLI to browse and watch anime — **Inspired from [ani-cli](https://github.com/pystardust/ani-cli)** with **batch download**, **resume detection**, **persistent config** and much more.
-<a href="https://github.com/port19x"><img src="https://img.shields.io/badge/lead-port19x-lightblue"></a>
 
 ## Why ani-plus?
 
 | Feature | ani-plus |
-|---------|---------|----------|
-| Batch download | ⚠️ via `-d -e` (one at a time) | ✅ full batch loop |
+|---------|----------|
+| Batch download | ✅ full batch loop |
 | Automatically organizes anime files into existing folders or creates new ones based on the series name|
-| Resume from last episode | ❌ | ✅ detects existing files |
-| Persistent download dir | ❌ (env var only) | ✅ `-d /path` saves to config |
-| Interactive menu after anime select | ❌ | ✅ Watch / Download / Quit |
-| Quality preference remembered | ❌ | ✅ saved in config |
-| All ani-cli flags | — | ✅ preserved |
+| Resume downloads from last episode | ✅ detects existing files |
+| Persistent download dir | ✅ `-d /path` saves to config |
+| Interactive menu after anime select | ✅ Watch / Download / Quit |
+| Quality preference remembered |✅ saved in config |
+| All ani-cli flags | ✅ preserved |
 
 ---
 |This project is still in development and new servers will be added in the next update|
