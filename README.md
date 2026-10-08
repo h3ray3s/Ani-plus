@@ -1,4 +1,4 @@
-# ani-plus
+# Ani-plus
 
 [![AUR](https://img.shields.io/aur/version/ani-plus?style=flat-square)](https://aur.archlinux.org/packages/ani-plus)
 [![GitHub release](https://img.shields.io/github/v/release/h3ray3s/ani-plus?style=flat-square)](https://github.com/h3ray3s/ani-plus/releases)
