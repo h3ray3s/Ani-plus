@@ -45,6 +45,7 @@ jobs:
       - name: Upload .deb
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: v1.0.0
           files: ani-plus_*_all.deb
 
   rpm:
@@ -113,4 +114,5 @@ jobs:
       - name: Upload .rpm
         uses: softprops/action-gh-release@v1
         with:
+          tag_name: v1.0.0
           files: "*.rpm"
