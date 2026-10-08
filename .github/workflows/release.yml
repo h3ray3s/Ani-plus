@@ -1,0 +1,116 @@
+name: Build packages on release
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+jobs:
+  deb:
+    name: Build .deb
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends dpkg-dev
+
+      - name: Build Debian package
+        run: |
+          VERSION=1.0.0
+          rm -rf pkgbuild && mkdir -p pkgbuild/ani-plus/DEBIAN
+          mkdir -p pkgbuild/ani-plus/usr/bin
+
+          install -Dm755 ani-plus.sh pkgbuild/ani-plus/usr/bin/ani-plus
+          ln -sf ani-plus pkgbuild/ani-plus/usr/bin/ani-cli
+
+          cat > pkgbuild/ani-plus/DEBIAN/control << 'DEBCTRL'
+          Package: ani-plus
+          Version: 1.0.0
+          Section: utils
+          Priority: optional
+          Architecture: all
+          Depends: curl, sed, grep, fzf, mpv, yt-dlp, ffmpeg
+          Maintainer: Hera <h3ray3s@gmail.com>
+          Homepage: https://github.com/h3ray3s/Ani-plus
+          Description: ani-cli fork with batch download and persistent config
+           ani-plus extends ani-cli with batch download, resume detection,
+           and persistent configuration.
+          DEBCTRL
+
+          dpkg-deb --build pkgbuild/ani-plus ani-plus_${VERSION}_all.deb
+
+      - name: Upload .deb
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ani-plus_*_all.deb
+
+  rpm:
+    name: Build .rpm
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    steps:
+      - name: Install tools
+        run: dnf install -y rpm-build rpmdevtools git tar gzip
+
+      - uses: actions/checkout@v4
+
+      - name: Build RPM
+        run: |
+          mkdir -p ~/rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+          tar -czf ~/rpmbuild/SOURCES/ani-plus-1.0.0.tar.gz \
+            --transform 's,^,ani-plus-1.0.0/,' ani-plus.sh README.md LICENSE
+
+          cat > ~/rpmbuild/SPECS/ani-plus.spec << 'RPMSPEC'
+          Name:           ani-plus
+          Version:        1.0.0
+          Release:        1%{?dist}
+          Summary:        ani-cli fork with batch download, resume detection, and persistent config
+          License:        GPL-3.0-only
+          URL:            https://github.com/h3ray3s/Ani-plus
+          Source0:        %{name}-%{version}.tar.gz
+
+          Requires:       curl
+          Requires:       sed
+          Requires:       grep
+          Requires:       fzf
+          Requires:       mpv
+          Requires:       yt-dlp
+          Requires:       ffmpeg
+          Provides:       ani-cli
+
+          BuildArch:      noarch
+
+          %description
+          ani-plus is a fork of ani-cli that adds batch download, resume detection,
+          and persistent configuration.
+
+          %prep
+          %setup -q
+
+          %install
+          mkdir -p %{buildroot}%{_bindir}
+          install -m 755 ani-plus.sh %{buildroot}%{_bindir}/ani-plus
+          ln -sf ani-plus %{buildroot}%{_bindir}/ani-cli
+
+          %files
+          %{_bindir}/ani-plus
+          %{_bindir}/ani-cli
+
+          %changelog
+          * Thu Oct 08 2026 Hera <h3ray3s@gmail.com> - 1.0.0-1
+          - Initial package
+          RPMSPEC
+
+          rpmbuild -ba ~/rpmbuild/SPECS/ani-plus.spec
+
+      - name: Collect RPM
+        run: |
+          find ~/rpmbuild/RPMS -name "*.rpm" -exec cp {} . \;
+
+      - name: Upload .rpm
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "*.rpm"
