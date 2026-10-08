@@ -1,16 +1,32 @@
 # Ani-plus
-
+<p align=center>
+<br>
+<a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
+<a href="#Linux"><img src="https://img.shields.io/badge/os-linux-brightgreen">
+<a href="#MacOS"><img src="https://img.shields.io/badge/os-mac-brightgreen">
+<a href="#Windows"><img src="https://img.shields.io/badge/os-windows-yellowgreen">
+<a href="#Android"><img src="https://img.shields.io/badge/os-android-yellow">
+<a href="#Steam-deck"><img src="https://img.shields.io/badge/os-steamdeck-yellow">
+<a href="#iOS"><img src="https://img.shields.io/badge/os-ios-red">
+<br>
 [![AUR version](https://img.shields.io/aur/version/ani-plus?style=flat-square)](https://aur.archlinux.org/packages/ani-plus)
 [![GitHub release](https://img.shields.io/github/v/release/h3ray3s/ani-plus?style=flat-square)](https://github.com/h3ray3s/ani-plus/releases)
 [![License](https://img.shields.io/github/license/h3ray3s/ani-plus?style=flat-square)](https://github.com)
 
 A CLI to browse and watch anime — **Inspired from [ani-cli](https://github.com/pystardust/ani-cli)** with **batch download**, **resume detection**, **persistent config** and much more.
+<a href="https://github.com/port19x"><img src="https://img.shields.io/badge/lead-port19x-lightblue"></a>
+<a href="https://github.com/CoolnsX"><img src="https://img.shields.io/badge/maintainer-CoolnsX-blue"></a>
+<a href="https://github.com/justchokingaround"><img src="https://img.shields.io/badge/maintainer-justchokingaround-blue"></a>
+<a href="https://github.com/Derisis13"><img src="https://img.shields.io/badge/maintainer-Derisis13-blue"></a>
+<a href="https://github.com/71zenith"><img src="https://img.shields.io/badge/maintainer-71zenith-blue"></a>
+<a href="https://github.com/vorlie"><img src="https://img.shields.io/badge/maintainer-vorlie-blue"></a>
 
+</p>
 ---
 
 ## Why ani-plus?
 
-    | Feature | ani-plus |
+| Feature | ani-plus |
 |---------|---------|----------|
 | Batch download | ⚠️ via `-d -e` (one at a time) | ✅ full batch loop |
 | Automatically organizes anime files into existing folders or creates new ones based on the series name|
