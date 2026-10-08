@@ -1,6 +1,3 @@
-
-# Ani-plus
-
 <p align="center">
 <br>
 <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
@@ -14,9 +11,14 @@
 <a href="https://github.com/h3ray3s/Ani-plus/releases"><img src="https://img.shields.io/github/v/release/h3ray3s/Ani-plus?style=flat-square"></a>
 <a href="https://github.com/h3ray3s/Ani-plus/blob/main/LICENSE"><img src="https://img.shields.io/github/license/h3ray3s/Ani-plus?style=flat-square"></a>
 <a href="https://github.com/h3ray3s/Ani-plus/stargazers"><img src="https://img.shields.io/github/stars/h3ray3s/Ani-plus?style=flat-square"></a>
+<a href="https://github.com/h3ray3s/Ani-plus/issues"><img src="https://img.shields.io/github/issues/h3ray3s/Ani-plus?style=flat-square"></a>
 </p>
-A CLI to browse and watch anime — **Inspired from [ani-cli](https://github.com/pystardust/ani-cli)** with **batch download**, **resume detection**, **persistent config** and much more.
 
+A CLI to browse and watch anime — **inspired by [ani-cli](https://github.com/pystardust/ani-cli)** — with **batch download**, **resume detection**, **persistent config**, and more.
+
+> ⚠️ This project is still in active development. New servers and features will be added in upcoming updates.
+
+---
 ## Why ani-plus?
 
 | Feature | ani-plus |
@@ -30,7 +32,7 @@ A CLI to browse and watch anime — **Inspired from [ani-cli](https://github.com
 | All ani-cli flags | ✅ preserved |
 
 ---
-|This project is still in development and new servers will be added in the next update|
+
 
 ## Table of Contents
 
