@@ -1,18 +1,17 @@
 # Ani-plus
 
-[![AUR](https://img.shields.io/aur/version/ani-plus?style=flat-square)](https://aur.archlinux.org/packages/ani-plus)
+[![AUR version](https://img.shields.io/aur/version/ani-plus?style=flat-square)](https://aur.archlinux.org/packages/ani-plus)
 [![GitHub release](https://img.shields.io/github/v/release/h3ray3s/ani-plus?style=flat-square)](https://github.com/h3ray3s/ani-plus/releases)
-[![License](https://img.shields.io/github/license/h3ray3s/ani-plus?style=flat-square)](LICENSE)
+[![License](https://img.shields.io/github/license/h3ray3s/ani-plus?style=flat-square)](https://github.com)
 
-A CLI to browse and watch anime — **Inspired from [ani-cli](https://github.com/pystardust/ani-cli)** with **batch download**, **resume detection**, and **persistent config**.
+A CLI to browse and watch anime — **Inspired from [ani-cli](https://github.com/pystardust/ani-cli)** with **batch download**, **resume detection**, **persistent config** and much more.
 
 ---
 
 ## Why ani-plus?
 
-| Feature | ani-cli | ani-plus |
+    | Feature | ani-plus |
 |---------|---------|----------|
-| Watch anime | ✅ | ✅ |
 | Batch download | ⚠️ via `-d -e` (one at a time) | ✅ full batch loop |
 | Automatically organizes anime files into existing folders or creates new ones based on the series name|
 | Resume from last episode | ❌ | ✅ detects existing files |
@@ -22,6 +21,7 @@ A CLI to browse and watch anime — **Inspired from [ani-cli](https://github.com
 | All ani-cli flags | — | ✅ preserved |
 
 ---
+|This project is still in development and new servers will be added in the next update|
 
 ## Table of Contents
 
