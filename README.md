@@ -41,6 +41,7 @@ A CLI to browse and watch anime — inspired by [ani-cli](https://github.com/pys
 - [Why ani-plus?](#why-ani-plus)
 - [Showcase](#showcase)
 - [Installation](#installation)
+  - [Most Linux distros](#For-most-linux-Distro)
   - [Arch Linux (AUR)](#arch-linux-aur)
   - [Debian / Ubuntu](#debian--ubuntu)
   - [Fedora](#fedora)
@@ -109,6 +110,13 @@ Add another anime? (y/n): n
 
 
 ### Please use install script as AUR is facing technical issues 
+
+### For most linux Distro
+```bash
+
+curl -fsSL https://github.com/h3ray3s/Ani-plus/releases/latest/download/ani-plus-1.0.0-install.sh | sudo bash
+```
+
 
 ### Arch Linux (AUR)
 
