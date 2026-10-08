@@ -1,3 +1,5 @@
+# Ani-plus
+
 <p align="center">
 <br>
 <a href="http://makeapullrequest.com"><img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg"></a>
@@ -12,6 +14,7 @@
 <a href="https://github.com/h3ray3s/Ani-plus/blob/main/LICENSE"><img src="https://img.shields.io/github/license/h3ray3s/Ani-plus?style=flat-square"></a>
 <a href="https://github.com/h3ray3s/Ani-plus/stargazers"><img src="https://img.shields.io/github/stars/h3ray3s/Ani-plus?style=flat-square"></a>
 <a href="https://github.com/h3ray3s/Ani-plus/issues"><img src="https://img.shields.io/github/issues/h3ray3s/Ani-plus?style=flat-square"></a>
+<a href="https://github.com/h3ray3s"><img src="https://img.shields.io/badge/active%20dev-h3ray3s-lightblue"></a>
 </p>
 
 A CLI to browse and watch anime — **inspired by [ani-cli](https://github.com/pystardust/ani-cli)** — with **batch download**, **resume detection**, **persistent config**, and more.
@@ -24,7 +27,7 @@ A CLI to browse and watch anime — **inspired by [ani-cli](https://github.com/p
 | Feature | ani-plus |
 |---------|----------|
 | Batch download | ✅ full batch loop |
-| Automatically organizes anime files into existing folders or creates new ones based on the series name|
+| Automatically organizes anime files into existing folders or creates new ones based on the series name| ✅ |
 | Resume downloads from last episode | ✅ detects existing files |
 | Persistent download dir | ✅ `-d /path` saves to config |
 | Interactive menu after anime select | ✅ Watch / Download / Quit |
